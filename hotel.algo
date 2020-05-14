@@ -13,8 +13,8 @@ END
 
 FUNCTION nb_nationality(rooms : ARRAY_OF Hotel, nationality: INTEGER) : INTEGER
 VAR
-    nb: INTEGER := 0;
-    i: INTEGER;
+    nb :INTEGER :=0;
+    i,j: INTEGER;
 BEGIN
     FOR i FROM 0 TO rooms.length-1 STEP 1 DO
         FOR j FROM 0 TO rooms[i].clients STEP step  DO
@@ -25,6 +25,34 @@ BEGIN
     END_FOR
     RETURN nb_free ;
 END
+PROCEDURE write_array() T: ARRAY_OF INTEGER)
+VAR
+    i : INTEGER;
+BEGIN
+    FOR i FROM 0 TO T.length-1  DO
+        Write(T[i]);
+    END_FOR
+END
+PROCEDURE children_in_hotel(rooms : ARRAY_OF Hotel)
+VAR
+    nb_by_natio: ARRAY_OF INTEGER[30];
+    i,j: INTEGER;
+BEGIN
+    FOR i FROM 0 TO 29 STEP 1  DO
+        nb_by_natio[i] := 0;
+    END_FOR
+    FOR i FROM 0 TO rooms.length-1 STEP 1 DO
+        FOR j FROM 0 TO rooms[i].clients STEP step  DO
+            IF (rooms[i].clients[j].age <= 12) THEN
+                nb_by_natio[rooms[i].clients[j].natio-1] := nb_by_natio[rooms[i].clients[j].natio-1] + 1;
+            END_IF
+        END_FOR
+    END_FOR
+    write_array(nb_by_natio);
+END
+
+
+
 ALGORITHM hotel_management
 VAR
     Client :	STRUCT
