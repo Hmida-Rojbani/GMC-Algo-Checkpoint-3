@@ -1,0 +1,18 @@
+ALGORITHM hotel_management
+VAR
+    Client :	STRUCT
+                    id_num : INTEGER;
+                    name : STRING[50];
+                    natio : INTEGER;
+                    age : INTEGER;
+                END_STRUCT
+    Hotel :	STRUCT
+                unique_num : INTEGER;
+                type : INTEGER;
+                state : BOOLEAN;
+                clients : ARRAY_OF Client[4];
+            END_STRUCT
+    hotel_rooms : ARRAY_OF Hotel[50];
+BEGIN
+    
+END
