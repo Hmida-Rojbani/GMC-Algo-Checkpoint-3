@@ -10,6 +10,21 @@ BEGIN
     END_FOR
     RETURN nb_free ;
 END
+
+FUNCTION nb_nationality(rooms : ARRAY_OF Hotel, nationality: INTEGER) : INTEGER
+VAR
+    nb: INTEGER := 0;
+    i: INTEGER;
+BEGIN
+    FOR i FROM 0 TO rooms.length-1 STEP 1 DO
+        FOR j FROM 0 TO rooms[i].clients STEP step  DO
+            IF (rooms[i].clients[j].natio = nationality) THEN
+                nb := nb + 1;
+            END_IF
+        END_FOR
+    END_FOR
+    RETURN nb_free ;
+END
 ALGORITHM hotel_management
 VAR
     Client :	STRUCT
