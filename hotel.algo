@@ -25,7 +25,7 @@ BEGIN
     END_FOR
     RETURN nb_free ;
 END
-PROCEDURE write_array() T: ARRAY_OF INTEGER)
+PROCEDURE write_array(T: ARRAY_OF INTEGER)
 VAR
     i : INTEGER;
 BEGIN
