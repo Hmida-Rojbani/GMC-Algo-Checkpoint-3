@@ -1,3 +1,15 @@
+FUNCTION free_rooms(rooms : ARRAY_OF Hotel) : INTEGER
+VAR
+    nb_free : INTEGER := 0;
+    i: INTEGER;
+BEGIN
+    FOR i FROM 0 TO rooms.length-1 STEP 1 DO
+        IF (rooms[i].state = TRUE) THEN
+            nb_free := nb_free +1;
+        END_IF
+    END_FOR
+    RETURN nb_free ;
+END
 ALGORITHM hotel_management
 VAR
     Client :	STRUCT
